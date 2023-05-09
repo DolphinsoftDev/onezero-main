@@ -5,7 +5,6 @@ import firstScreenIllustration from "../../assets/firstscreen-illustration.png";
 import firstScreenIllustrationDesktop from "../../assets/firstscreen-illustration-desktop.png";
 
 type Props = {};
-
 export default function FirstScreen({}: Props) {
   return (
     <div className="bg-blue w-full h-full flex flex-col gap-[2.88rem] text-white p-5 px-6 pb-12 md:px-20 md:py-10 md:pb-6 md:items-stretch ">
@@ -15,7 +14,7 @@ export default function FirstScreen({}: Props) {
         alt="לוגו"
       />
       <div className="md:flex md:my-6 md:gap-[9.125rem] md:justify-between ">
-        <div className="flex flex-col gap-6 md:gap-12 font-Digibank-Regular 3xl:self ">
+        <div  className="flex flex-col gap-6 md:gap-12 font-Digibank-Regular 3xl:self ">
           <h2 className="text-3xl md:text-5xl md:whitespace-nowrap 3xl:text-6xl ">
             בנק <span className="font-Digibank-Apparat-Book ">ONE ZERO</span>
             <br />

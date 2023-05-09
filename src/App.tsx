@@ -16,7 +16,7 @@ import { MIN_DESKTOP_WIDTH } from "./constants/constants";
 function App() {
   const isDesktop = window.screen.width >= MIN_DESKTOP_WIDTH;
   return (
-    <div className="">
+    <div>
       {isDesktop && <StickyFooter />}
       <FirstScreen />
       <SecondScreen />
