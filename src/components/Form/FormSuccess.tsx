@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "../Ui/Link";
 
 type Props = {};
 
@@ -15,7 +16,7 @@ export default function FormSuccess({}: Props) {
         <br />
         והשירותים שלנו
       </p>
-      <p className="font-Digibank-Regular opacity-70 underline text-base md:text-2xl">לפירוט המסלולים המלא</p>
+      <Link target="_blank" href="https://www.onezerobank.com/plans/" className="font-Digibank-Regular opacity-70 underline text-base md:text-2xl">לפירוט המסלולים המלא</Link>
     </div>
   );
 }
