@@ -51,7 +51,7 @@ export default function StickyFooter({}: Props) {
         <p
           className={`hidden md:block ${isVisibleStyle}  text-darkGrey font-Digibank-Regular text-base`}
         >
-          חודשים התנסות חינם
+          חודשיים התנסות חינם
         </p>
         <button
           onClick={handleCall}
