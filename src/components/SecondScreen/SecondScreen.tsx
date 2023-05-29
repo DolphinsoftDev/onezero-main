@@ -13,16 +13,13 @@ const infoCardHeader =
   "leading-none font-Digibank-Medium text-xl mb-1 pr-2 md:text-2xl 3xl:text-3xl";
 const infoCardText =
   "font-Digibank-Regular text-black opacity-70 text-base leading-none pr-2 md:opacity-100 md:text-darkGrey md:p-none md:text-[1.38rem]";
-const cardImage = "w-[18.375rem] h-[17.065rem] 3xl:w-96  3xl:h-fit  scale-x-[1.15] ";
+const cardImage =
+  "w-[18.375rem] h-[17.065rem] 3xl:w-96  3xl:h-fit  scale-x-[1.15] ";
 export default function SecondScreen({}: Props) {
   return (
     <div className=" bg-grey text-black px-5 pt-14 pb-10 flex flex-col gap-12 ">
       <h2 className="text-center font-Digibank-Regular text-2xl leading-[1.10] md:text-4xl	">
-        מעל{" "}
-        <span className="text-2xl font-Digibank-Apparat-Book leading-none md:text-4xl">
-          50,000
-        </span>{" "}
-        לקוחות הצטרפו,
+        עשרות אלפי לקוחות כבר הצטרפו,
         <br />
         ונהנים מתנאים מעולים. מה איתך?
       </h2>
@@ -36,7 +33,7 @@ export default function SecondScreen({}: Props) {
       </HorizontalInfoCard>
       <HorizontalInfoCard className="md:hidden" src={Ball}>
         <h3 className={infoCardHeader}>
-          4.25% פיקדון בריבית
+          4.5% פיקדון בריבית
           <br />
           שנתית משתנה
         </h3>
@@ -68,7 +65,7 @@ export default function SecondScreen({}: Props) {
         <VerticalInfoCard>
           <img className={cardImage} src={pikadon} alt="" />
           <h3 className={infoCardHeader}>
-            4.25% פיקדון בריבית
+            4.5% פיקדון בריבית
             <br />
             שנתית משתנה
           </h3>
