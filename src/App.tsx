@@ -20,13 +20,13 @@ function App() {
       {isDesktop && <StickyFooter />}
       <FirstScreen />
       <SecondScreen />
-      <ThirdScreen />
-      <FourthScreen />
-      <FifthScreen />
       <div className="md:flex w-full md:h-[40rem]">
         <Form />
         <FormImage />
       </div>
+      <ThirdScreen />
+      <FourthScreen />
+      <FifthScreen />
       <Qa />
       <Footer />
       {!isDesktop && <StickyFooter />}

@@ -17,7 +17,7 @@ const cardImage =
   "w-[18.375rem] h-[17.065rem] 3xl:w-96  3xl:h-fit  scale-x-[1.15] ";
 export default function SecondScreen({}: Props) {
   return (
-    <div className=" bg-grey text-black px-5 pt-14 pb-10 flex flex-col gap-12 ">
+    <div className=" bg-white text-black px-5 pt-14 pb-10 flex flex-col gap-12 ">
       <h2 className="text-center font-Digibank-Regular text-2xl leading-[1.10] md:text-4xl	">
         עשרות אלפי לקוחות כבר הצטרפו,
         <br />

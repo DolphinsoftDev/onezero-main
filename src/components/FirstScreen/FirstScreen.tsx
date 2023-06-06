@@ -7,14 +7,14 @@ import firstScreenIllustrationDesktop from "../../assets/firstscreen-illustratio
 type Props = {};
 export default function FirstScreen({}: Props) {
   return (
-    <div className="bg-blue w-full h-full flex flex-col gap-[2.88rem] text-white p-5 px-6 pb-12 md:px-20 md:py-10 md:pb-6 md:items-stretch ">
+    <div className="bg-blue w-full h-full flex flex-col gap-[1.5625rem] text-white p-5 px-6 pb-6 md:px-20 md:py-6 md:pb-0 md:items-stretch">
       <img
         className="self-end object-contain w-26 h-[1.4rem] mt-2 md:mt-0  md:w-30 md:h-7"
         src={oneZeroLogo}
         alt="לוגו"
       />
       <div className="md:flex md:my-6 md:gap-[9.125rem] md:justify-between ">
-        <div  className="flex flex-col gap-6 md:gap-12 font-Digibank-Regular 3xl:self ">
+        <div className="flex flex-col gap-4 md:gap-12 font-Digibank-Regular 3xl:self ">
           <h2 className="text-3xl md:text-5xl md:whitespace-nowrap 3xl:text-6xl ">
             בנק <span className="font-Digibank-Apparat-Book ">ONE ZERO</span>
             <br />
@@ -26,12 +26,11 @@ export default function FirstScreen({}: Props) {
             <IconParagraph text="0% עמלת המרת מט״ח בכרטיס" />
           </div>
 
-          <p className="font-Digibank-Medium my-4 md:text-2xl md:mt-12 3xl:text-3xl">
+          <p className="font-Digibank-Medium my-3 md:text-2xl md:mt-12 3xl:text-3xl">
             ועכשיו עם חודשיים התנסות חינם <br />
             במסלול המוביל שלנו.
           </p>
         </div>
-
         <img
           className="md:hidden"
           src={firstScreenIllustration}

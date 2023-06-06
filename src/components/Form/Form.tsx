@@ -23,10 +23,10 @@ export default function Form({}: Props) {
     mailingList: false,
   });
   // check if there is first and lastName
-  const isFullNameValid =
-    isTouched.fullName && fullName.split(" ").length === 2;
+  const isFullNameValid = !!fullName;
   const isEmailValid = validateEmail(email);
-  const isPhoneValid = isValidIsraeliPhone(phone);
+  // const isPhoneValid = isValidIsraeliPhone(phone);
+  const isPhoneValid = !!phone;
   const isMailingListValid = mailingList === "true";
   const isFormValid =
     isMailingListValid && isFullNameValid && isEmailValid && isPhoneValid;
@@ -42,7 +42,6 @@ export default function Form({}: Props) {
     if (!isFormValid) return;
     setIsLoading(true);
     const [first_name, last_name] = fullName.split(" ");
-
     axios
       .post(
         "register",
@@ -80,7 +79,8 @@ export default function Form({}: Props) {
       })
       .catch((error) => {
         console.error(error);
-      }).finally(()=>setIsLoading(false));
+      })
+      .finally(() => setIsLoading(false));
   };
   return (
     <div
