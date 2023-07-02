@@ -42,6 +42,7 @@ export default function Form({}: Props) {
     if (!isFormValid) return;
     setIsLoading(true);
     const [first_name, last_name] = fullName.split(" ");
+    let params = new URLSearchParams(window.location.search);
     axios
       .post(
         "register",
@@ -60,9 +61,9 @@ export default function Form({}: Props) {
           free_text: null,
           other: null,
           registered_date: new Date(),
-          utm_campaign: null,
-          utm_medium: null,
-          utm_source: null,
+          utm_campaign: params.get("utm_campaign") || null,
+          utm_medium: params.get("utm_medium") || null,
+          utm_source: params.get("utm_source") || null,
           utm_term: null,
           web_site: null,
           website_origin: null,
