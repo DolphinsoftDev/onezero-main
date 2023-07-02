@@ -13,8 +13,11 @@ export default function HorizontalInfoCard({
   className,
 }: Props) {
   return (
-    <div className={`flex gap-4 w-full items-center ${className}`}>
-      <Avatar src={src} className="w-16 h-16 object-contain" />
+    <div className={`flex gap-2 w-full  ${className}`}>
+      <Avatar
+        src={src}
+        className="w-[72px] h-[72px] object-contain rounded-full"
+      />
       <div>{children}</div>
     </div>
   );

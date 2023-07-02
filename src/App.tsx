@@ -13,25 +13,22 @@ import Footer from "./components/Footer/Footer";
 import StickyFooter from "./components/Footer/StickyFooter";
 import { MIN_DESKTOP_WIDTH } from "./constants/constants";
 import { useIsScrolled } from "./hooks/useIsScrolled";
+import { useIsMobile } from "./hooks/useIsMobile";
+import Desktop from "./components/Desktop/Desktop";
 
 function App() {
-  const isDesktop = window.screen.width >= MIN_DESKTOP_WIDTH;
-  const isScrolled = useIsScrolled();
+  const isMobile = useIsMobile();
+  if (!isMobile) {
+    return <Desktop />;
+  }
   return (
     <div>
-      {isDesktop && isScrolled && <StickyFooter />}
       <FirstScreen />
-      <div className="md:flex w-full md:h-[40rem]">
-        <Form />
-        <FormImage />
-      </div>
       <SecondScreen />
       <ThirdScreen />
       <FourthScreen />
-      <FifthScreen />
       <Qa />
       <Footer />
-      {!isDesktop && <StickyFooter />}
     </div>
   );
 }

@@ -1,46 +1,77 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import IconButton from "../Ui/IconButton";
 import leftArrow from "../../assets/icons/arrow-left.svg";
 import QrDialog from "../QrDialog/QrDialog";
 import { MIN_DESKTOP_WIDTH } from "../../constants/constants";
 import { openAppStore } from "../../utils/openAppStore";
+
+import checkup from "../../assets/mobile-imgs/checkup.png";
+import phoneNotification from "../../assets/mobile-imgs/phone-notification.png";
+import trolly from "../../assets/mobile-imgs/trolly.png";
+
 type Props = {};
 
-// TODO: Fix height of text not 100% center
-export default function FourthScreen({}: Props) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  function handleClick() {
-    if (window.screen.width >= MIN_DESKTOP_WIDTH) {
-      setIsDialogOpen(true);
-      return;
-    }
-    openAppStore();
-
-    //TODO: redirect to app store
-  }
-
+function Card({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-blue flex flex-col pb-12 pt-[4.815rem] px-5 gap-7 text-center text-white items-center md:pb-[6.75rem] md:pt-[5.625rem]">
-      <h2 className="font-Digibank-Regular text-[1.5rem] leading-tight md:leading-[1.1] md:text-[2.5rem]">
-        כמה דקות ויש לך חשבון
-        <br className="hidden md:flex" /> עם <br className="flex md:hidden" />
-        חודשיים התנסות ללא עלות.
+    <div className="flex flex-col items-center text-center">{children}</div>
+  );
+}
+
+export default function FourthScreen({}: Props) {
+  return (
+    <div className="bg-[#3E3E3E] text-white font-Digibank-Regular flex flex-col items-center text-center pb-[40px] pt-[29px] gap-[30px] ">
+      <h2 className="text-[1.5rem] leading-7">
+        לקוחות מסלולי הבנקאות
+        <br />
+        הפרטית One+ / One
+        <br />
+        נהנים משירות ניהול החשבון
       </h2>
-      <IconButton
-        onClick={handleClick}
-        iconPosition="end"
-        icon={
-          <img
-            src={leftArrow}
-            className="w-4 h-4 align-baseline"
-            alt="חץ שמאלה"
-          />
-        }
-        className="bg-white text-blue font-Digibank-Medium md:text-base leading-[1.1875rem]"
-        text="להתנסות ופתיחת חשבון"
-      ></IconButton>
-      <QrDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+      <Card>
+        <img className=" w-[285px] " src={checkup} />
+        <header className="font-Digibank-Medium text-[1.25rem] mt-[20px]">
+          צ׳ק אפ פיננסי מלא
+        </header>
+        <p className="leading-tight  ">
+          באמצעות מערכת AI החכמה שפיתחנו - ׳אלה׳
+          <br />
+          הבנקאית הפרטית הדיגיטלית שלך תסרוק
+          <br />
+          את חשבונך מדי יום כדי לוודא שהכל בסדר. אם משהו
+          <br />
+          לא תקין, ׳אלה׳ תטפל בזה בשבילך.
+        </p>
+      </Card>
+      <Card>
+        <img className="me-[20px] w-[303px]" src={phoneNotification} />
+        <header className="font-Digibank-Medium text-[1.25rem] mt-[20px]">
+          מנהלי כספים שעובדים בשבילך
+        </header>
+        <p className="leading-tight  ">
+          הצוות ילווה ויסייע בניהול החשבון והנכסים
+          <br />
+          שלך, כדי להבטיח את הצמיחה הפיננסית שלך.
+        </p>
+      </Card>
+      <Card>
+        <img className="ms-[20px] w-[303px]" src={trolly} />
+        <header className="font-Digibank-Medium text-[1.25rem] mt-[20px]">
+          טסים לחו״ל?
+        </header>
+        <p className="leading-tight  ">
+          כדי ליהנות מ-0% עמלת המרת מט״ח,
+          <br />
+          לא לשכוח לקחת את הכרטיס של ONE ZERO.
+          <br />
+          לאחר הנסיעה, אנחנו נרכז בשבילך את
+          <br />
+          ההוצאות ונכין לך סיכום מפורט, כולל
+          <br />
+          החיסכון שהשגת בזכות השימוש בכרטיס
+          <br />
+          של ONE ZERO.
+        </p>
+      </Card>
     </div>
   );
 }

@@ -55,7 +55,6 @@ export default function FifthScreen({}: Props) {
   return (
     <div className="flex flex-col items-center justify-center place-content-center py-14 px-0 gap-8 text-center">
       <h2 className="font-Digibank-Medium  text-2xl leading-7 md:text-[2.5rem] md:leading-4">
-        נגמרה ההתנסות? <br className="md:hidden" />
         איזה מסלול הכי מתאים לך?
       </h2>
       <Link target="_blank" href="https://www.onezerobank.com/plans/" className="md:text-2xl">לפירוט המסלולים המלא</Link>

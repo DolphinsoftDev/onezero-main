@@ -36,6 +36,7 @@ export default {
         re: "0px 1px 14px rgba(0, 0, 0, 0.12)",
       },
       colors: {
+        link:"rgb(37, 99, 235)",
         blue: "#2D68F3",
         grey: "#F2F2F2",
         midGrey: "#707070",

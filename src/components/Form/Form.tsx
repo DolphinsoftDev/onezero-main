@@ -31,7 +31,7 @@ export default function Form({}: Props) {
   const isFormValid =
     isMailingListValid && isFullNameValid && isEmailValid && isPhoneValid;
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.MouseEvent) => {
     event.preventDefault();
     setIsTouched({
       fullName: true,
@@ -41,7 +41,12 @@ export default function Form({}: Props) {
     });
     if (!isFormValid) return;
     setIsLoading(true);
+    window.dataLayer?.push({
+      event: "oneZero",
+      eventdata: { category: "One_LP", action: "form_submit", label: "lead" },
+    });
     const [first_name, last_name] = fullName.split(" ");
+    let params = new URLSearchParams(window.location.search);
     axios
       .post(
         "register",
@@ -54,15 +59,15 @@ export default function Form({}: Props) {
           birthyear: null,
           company_name: null,
           cupon: null,
-          event_type: "main",
+          event_type: "workingforyou",
           form_type: null,
           founders_lead_name: null,
           free_text: null,
           other: null,
           registered_date: new Date(),
-          utm_campaign: null,
-          utm_medium: null,
-          utm_source: null,
+          utm_campaign: params.get("utm_campaign") || null,
+          utm_medium: params.get("utm_medium") || null,
+          utm_source: params.get("utm_source") || null,
           utm_term: null,
           web_site: null,
           website_origin: null,
@@ -86,24 +91,20 @@ export default function Form({}: Props) {
     <div
       className={`bg-grey ${
         isSubmitted && "bg-white"
-      } font-Digibank-Regular flex flex-col p-11  text-right md:w-1/2 md:justify-center md:items-center md:p-0 `}
+      } font-Digibank-Regular flex flex-col p-9  text-right md:w-1/2 md:justify-center md:items-center md:p-0 `}
     >
       {isSubmitted ? (
         <FormSuccess />
       ) : (
-        <div>
+        <div className="text-center md:text-start">
           <h2 className="text-2xl md:leading-[1.25]  md:text-[2.5rem] 2xl:text-[2.5rem]">
             רוצה לשמוע עוד?
           </h2>
           <p className="opacity-70 leading-5 text-base md:leading-[1.25] md:text-xl 2xl:text-xl">
-            משאירים כאן פרטים ונציג שלנו ייצור איתך
-            <br />
-            קשר עם כל המידע על התנאים המעולים שלנו
+            הצוות שלנו ישמח לחזור אליך <br className="md:hidden" />
+            ולענות על כל שאלה.
           </p>
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-5 my-4 md:mt-6 md:gap-8"
-          >
+          <form className="flex flex-col gap-5 my-4 md:mt-6 md:gap-8">
             <input
               className={`${inputStyle} ${
                 isTouched.fullName && !isFullNameValid && invalidInputStyle
@@ -162,20 +163,21 @@ export default function Form({}: Props) {
                 id="agreedSmsEmail"
               />
               <label
-                className={`text-xs text-darkGrey leading-none md:text-base ${
+                className={`text-xs text-darkGrey leading-none text-start  md:text-base ${
                   isTouched.mailingList && !isMailingListValid && "text-red-700"
                 }`}
                 htmlFor="agreedSmsEmail"
               >
-                תשלחו לי עדכונים הצעות והטבות במייל וב -{" "}
-                <span className="">SMS</span>
+                תשלחו לי עדכונים, הצעות והטבות בטלפון, במייל וב-{" "}
+                <span className="font-Digibank-Apparat-Book">SMS</span>
               </label>
             </div>
             <button
-              type="submit"
+              onClick={handleSubmit}
+              type="button"
               className={`flex font-Digibank-Medium self-center text-white bg-blue rounded-3xl py-2 px-6 w-fit text-sm font-medium md:text-base md:self-start }`}
             >
-              תחזרו אליי
+              תחזרו אלי
               <svg
                 className={`animate-spin -ml-1 mr-3 h-5 w-5 text-white ${
                   isLoading ? "block" : "hidden"
