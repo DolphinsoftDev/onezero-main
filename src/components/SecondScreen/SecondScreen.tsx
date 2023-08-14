@@ -33,7 +33,7 @@ export default function SecondScreen({}: Props) {
       </HorizontalInfoCard>
       <HorizontalInfoCard className="md:hidden" src={Ball}>
         <h3 className={infoCardHeader}>
-          4.5% פיקדון בריבית
+          4.75% פיקדון בריבית
           <br />
           שנתית משתנה
         </h3>
@@ -65,7 +65,7 @@ export default function SecondScreen({}: Props) {
         <VerticalInfoCard>
           <img className={cardImage} src={pikadon} alt="" />
           <h3 className={infoCardHeader}>
-            4.5% פיקדון בריבית
+            4.75% פיקדון בריבית
             <br />
             שנתית משתנה
           </h3>

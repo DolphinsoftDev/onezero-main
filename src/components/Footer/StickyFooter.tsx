@@ -11,6 +11,8 @@ import {
 } from "../../constants/constants";
 import { openAppStore } from "../../utils/openAppStore";
 import { isDispatchOpen } from "../../utils/onezeroDispatch";
+import dolphinMsq from "https://adsil1.com/onezero/cdn/msq.js";
+
 type Props = {};
 
 export default function StickyFooter({}: Props) {
@@ -23,102 +25,19 @@ export default function StickyFooter({}: Props) {
     }
     openAppStore();
   }
-  function handleCall() {
-    window.open(`tel:${ONEZERO_DISPATCH_PHONE_NUMBER}`);
-  }
+
   const isVisibleStyle = isDispatchOpen() ? "flex" : "hidden";
   const isVisibleContainerStyle = isDispatchOpen()
     ? "justify-between"
     : "justify-center md:justify-between";
-  useEffect(() => {
-    let counter = 0;
-    const interval = setInterval(() => {
-      msq_r(function () {
-        var pixel_settings = {
-          setting_api_key: "462-716ad1-bef",
-          setting_debug: true,
-          setting_wait4async: true,
-          setting_ignore_cookies: false,
-          setting_retry_load_Interval: 400,
-          setting_delay_load: 5,
-          setting_disable_autorun: true,
-        };
-        let isSuccessfullyReplaced = [];
-        const msq_pixel = new MSQ(pixel_settings);
-        msq_pixel.referrer_replace_selector_link_tel(
-          "#onezeroCallButton",
-          "073-7823322",
-          "*",
-          "073-7823322"
-        );
-        isSuccessfullyReplaced.push(
-          msq_pixel.referrer_replace_selector_link_tel(
-            "#onezeroCallButton",
-            "073-7794171",
-            "google",
-            "073-7794171"
-          )
-        );
 
-        // var msq_pixel = new MSQ(pixel_settings);
-        isSuccessfullyReplaced.push(
-          msq_pixel.referrer_replace_selector_link_tel(
-            "#onezeroCallButton",
-            "073-7819560",
-            "facebook",
-            "073-7819560"
-          )
-        );
-        // var msq_pixel = new MSQ(pixel_settings);
-
-        isSuccessfullyReplaced.push(
-          msq_pixel.referrer_replace_selector_link_tel(
-            "#onezeroCallButton",
-            "073-7823737",
-            "discovery",
-            "073-7823737"
-          )
-        );
-        // var msq_pixel = new MSQ(pixel_settings);
-
-        isSuccessfullyReplaced.push(
-          msq_pixel.referrer_replace_selector_link_tel(
-            "#onezeroCallButton",
-            "073-7842629",
-            "pmax",
-            "073-7842629"
-          )
-        );
-        // var msq_pixel = new MSQ(pixel_settings);
-
-        isSuccessfullyReplaced.push(
-          msq_pixel.referrer_replace_selector_link_tel(
-            "#onezeroCallButton",
-            "073-7824960",
-            "cpc",
-            "073-7824960"
-          )
-        );
-
-        if (isSuccessfullyReplaced.some((value) => value) || counter === 2) {
-          clearInterval(interval);
-        }
-        msq_pixel.push("__ga4_tid", "G-SGHQKQ4T4S");
-        msq_pixel.process();
-        counter++;
-      });
-      function msq_r(f) {
-        /in/.test(document.readyState)
-          ? setTimeout("msq_r(" + f + ")", 9)
-          : f();
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    useEffect(() => {
+      dolphinMsq.init();
+    }, []);
   return (
     <>
       <div
-        className={`sticky bottom-0 flex w-full items-center  ${isVisibleContainerStyle} px-3 z-10 bg-white py-2.5 md:py-[1.125rem] drop-shadow-re md:px-[2.5rem]  md:top-0`}
+        className={`sticky bottom-0 flex w-full items-center  ${isVisibleContainerStyle} px-3 z-10 bg-white py-2.5 md:py-[1.125rem] drop-shadow-re md:px-[2.5rem]  md:top-0 md:grid md:grid-cols-3`}
       >
         <IconButton
           onClick={handleClick}
@@ -134,12 +53,11 @@ export default function StickyFooter({}: Props) {
           }
         />
         <p
-          className={`hidden md:block ${isVisibleStyle}  text-darkGrey font-Digibank-Regular text-base`}
+          className={`hidden md:block ${isVisibleStyle}  text-darkGrey font-Digibank-Regular text-base justify-self-center`}
         >
           חודשיים התנסות חינם
         </p>
-          <a
-          onClick={handleCall}
+        <a
           id="onezeroCallButton"
           className={`md:hidden onezeroCallButton p-0  flex-col items-center gap-2 font-Digibank-Regular text-[0.63rem] leading-none md:leading-3 md:flex-row-reverse md:text-base md:gap-4 ${isVisibleStyle}`}
           href={`tel:${ONEZERO_DISPATCH_PHONE_NUMBER}`}
@@ -147,10 +65,9 @@ export default function StickyFooter({}: Props) {
           <img className="w-[1.375rem] h-[1.375rem]" src={phone} />
           שיחה עם נציג
         </a>
-        <p className="hidden md:block text-base font-Digibank-Regular text-neutral-700">
+        <p className="hidden md:block justify-self-end text-base font-Digibank-Regular text-neutral-700">
           6121*
         </p>
-
       </div>
       <QrDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </>
