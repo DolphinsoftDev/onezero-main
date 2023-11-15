@@ -30,6 +30,7 @@ export default function Form({}: Props) {
   const isMailingListValid = mailingList === "true";
   const isFormValid =
     isMailingListValid && isFullNameValid && isEmailValid && isPhoneValid;
+  const params = new URLSearchParams(window.location.search);
 
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -42,10 +43,6 @@ export default function Form({}: Props) {
       mailingList: true,
     });
     if (!isFormValid) return;
-    window.dataLayer.push({
-      event: "oneZero",
-      eventdata: { category: "One_LP", action: "form_submit", label: "lead" },
-    });
     setIsLoading(true);
     const [first_name, last_name] = fullName.split(" ");
     let params = new URLSearchParams(window.location.search);
@@ -67,10 +64,11 @@ export default function Form({}: Props) {
           free_text: null,
           other: null,
           registered_date: new Date(),
-          utm_campaign: params.get("utm_campaign") || null,
-          utm_medium: params.get("utm_medium") || null,
-          utm_source: params.get("utm_source") || null,
-          utm_term: null,
+          utm_source: params.get('utm_source') || null,
+          utm_medium: params.get('utm_medium') || null,
+          utm_campaign: params.get('utm_campaign') || null,
+          utm_content: params.get('utm_content') || null,
+          utm_term: params.get('utm_term') || null,
           web_site: null,
           website_origin: null,
         },
@@ -83,6 +81,12 @@ export default function Form({}: Props) {
       .then((response) => {
         setIsSubmitted(true);
         console.log(response.data);
+        if(response.data?.status === "OK") {
+          window.dataLayer.push({
+            event: "oneZero",
+            eventdata: { category: "One_Form_Submitted", action: "form_submit", label: "lead" },
+          });
+        }
       })
       .catch((error) => {
         console.error(error);
