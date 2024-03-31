@@ -95,7 +95,7 @@ export default function Qa() {
         }
         summary={"מי עומד מאחורי הבנק?"}
       />
-      <Accordion
+      {/* <Accordion
         details={
           <p>
             הבנק הוא באפליקציה הדורשת טלפון חכם, אין לנו כרגע אתר אינטרנט. כרגע
@@ -106,7 +106,7 @@ export default function Qa() {
           </p>
         }
         summary={"כל אחד יכול להיות לקוח שלכם?"}
-      />
+      /> */}
       <Accordion
         details={
           <p>
