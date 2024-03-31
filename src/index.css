@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Apparat-Light";
+  src: url("./assets//fonts/OneZero-Apparat-Light.woff2");
+}
+
+@font-face {
+  font-family: "Apparat-Book";
+  src: url("./assets//fonts/OneZero-Apparat-Book.woff");
+}
+@font-face {
+  font-family: "Apparat-Medium";
+  src: url("./assets//fonts/OneZero-Apparat-Medium.woff2");
+}
+@font-face {
+  font-family: "Apparat-Bold";
+  src: url("./assets//fonts/OneZero-Apparat-Bold.woff2");
+}
+
+@font-face {
   font-family: "Digibank-Regular";
   src: url("./assets//fonts/NarkissBlockDigibank-Regular.otf");
 }
@@ -18,6 +36,18 @@
 
 @layer base {
   html {
-    font-family: Apparat-Book-TRIAL, system-ui, sans-serif;
+    font-family: Apparat-Book, system-ui, sans-serif;
+  }
+}
+
+.first-section-container {
+  background-image: url(assets/desktop_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .first-section-container {
+    background-image: url(assets/mobile_bg.png);
   }
 }

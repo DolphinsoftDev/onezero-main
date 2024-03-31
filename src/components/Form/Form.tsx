@@ -1,19 +1,19 @@
-import React from "react";
-import axios from "../../lib/fetch";
-import { useState } from "react";
-import { isValidIsraeliPhone, validateEmail } from "../../utils/validation";
-import FormSuccess from "./FormSuccess";
+import React from 'react';
+import axios from '../../lib/fetch';
+import { useState } from 'react';
+import { isValidIsraeliPhone, validateEmail } from '../../utils/validation';
+import FormSuccess from './FormSuccess';
 type Props = {};
 
 const inputStyle =
-  "bg-inherit border-borderGrey border-0 border-b-[1px] border-solid text-xs focus:outline-0 pb-[.5rem] placeholder:opacity-70 md:h-full md:text-darkGrey md:placeholder:opacity-100 md:text-lg ";
+  'bg-inherit border-borderGrey border-0 border-b-[1px] border-solid text-xs focus:outline-0 pb-[.5rem] placeholder:opacity-70 md:h-full md:text-darkGrey md:placeholder:opacity-100 md:text-lg ';
 const invalidInputStyle =
-  "bg-red-50 border border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500";
+  'bg-red-50 border border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500';
 export default function Form({}: Props) {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [mailingList, setMailingList] = useState("false");
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [mailingList, setMailingList] = useState('false');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isTouched, setIsTouched] = useState({
@@ -25,9 +25,9 @@ export default function Form({}: Props) {
   // check if there is first and lastName
   const isFullNameValid = !!fullName;
   const isEmailValid = validateEmail(email);
-  // const isPhoneValid = isValidIsraeliPhone(phone);
-  const isPhoneValid = !!phone;
-  const isMailingListValid = mailingList === "true";
+  const isPhoneValid = isValidIsraeliPhone(phone);
+  // const isPhoneValid = !!phone;
+  const isMailingListValid = mailingList === 'true';
   const isFormValid =
     isMailingListValid && isFullNameValid && isEmailValid && isPhoneValid;
   const params = new URLSearchParams(window.location.search);
@@ -43,12 +43,15 @@ export default function Form({}: Props) {
       mailingList: true,
     });
     if (!isFormValid) return;
+    window.dataLayer.push({
+      event: "LeadForm",
+      eventdata: { category: "Form_Submission", action: "lead_sent", label: "lead" },
+    });
     setIsLoading(true);
-    const [first_name, last_name] = fullName.split(" ");
-    let params = new URLSearchParams(window.location.search);
+    const [first_name, last_name] = fullName.split(' ');
     axios
       .post(
-        "register",
+        'register',
         {
           first_name,
           last_name,
@@ -58,7 +61,7 @@ export default function Form({}: Props) {
           birthyear: null,
           company_name: null,
           cupon: null,
-          event_type: "main",
+          event_type: 'main',
           form_type: null,
           founders_lead_name: null,
           free_text: null,
@@ -74,17 +77,17 @@ export default function Form({}: Props) {
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         }
       )
       .then((response) => {
         setIsSubmitted(true);
         console.log(response.data);
-        if(response.data?.status === "OK") {
+        if(response.data?.resultData?.status === "OK") {
           window.dataLayer.push({
-            event: "oneZero",
-            eventdata: { category: "One_Form_Submitted", action: "form_submit", label: "lead" },
+            event: "LeadFormOK",
+            eventdata: { category: "Form_Submission", action: "lead_submitted", label: "lead" },
           });
         }
       })
@@ -96,20 +99,22 @@ export default function Form({}: Props) {
   return (
     <div
       className={`bg-grey ${
-        isSubmitted && "bg-white"
-      } font-Digibank-Regular flex flex-col p-11  text-right md:w-1/2 md:justify-center md:items-center md:p-0 `}
+        isSubmitted && 'bg-white'
+      } font-OneZero-Apparat-Book flex flex-col p-11  pt-[30px] md:pt-[usnet]  text-right md:w-1/2 md:justify-center md:items-center md:p-0 `}
     >
       {isSubmitted ? (
         <FormSuccess />
       ) : (
-        <div>
-          <h2 className="text-2xl md:leading-[1.25]  md:text-[2.5rem] 2xl:text-[2.5rem]">
+        <div className='flex flex-col text-center md:text-right'>
+          <h2 className="font-OneZero-Apparat-Medium text-2xl md:leading-[50px]  md:text-[40px] 2xl:text-[2.5rem] mb-[15px] md:mb-[12px]">
             רוצה לשמוע עוד?
           </h2>
-          <p className="opacity-70 leading-5 text-base md:leading-[1.25] md:text-xl 2xl:text-xl">
+          <p className="opacity-70 leading-5 text-base md:leading-[25px] md:text-[20px] 2xl:text-xl">
             משאירים כאן פרטים ונציג שלנו ייצור איתך
-            <br />
-            קשר עם כל המידע על התנאים המעולים שלנו
+            <br className='md:hidden'/> {" "}
+            קשר
+            <br className='hidden md:block'/> {" "}
+            עם כל המידע על התנאים המעולים שלנו
           </p>
           <form className="flex flex-col gap-5 my-4 md:mt-6 md:gap-8">
             <input
@@ -142,6 +147,7 @@ export default function Form({}: Props) {
               className={`${inputStyle} ${
                 isTouched.phone && !isPhoneValid && invalidInputStyle
               }`}
+              dir='rtl'
               type="tel"
               name="phone"
               id="phone"
@@ -169,13 +175,24 @@ export default function Form({}: Props) {
                 name="agreedSmsEmail"
                 id="agreedSmsEmail"
               />
-              <label
-                className={`text-xs text-darkGrey leading-none md:text-base ${
-                  isTouched.mailingList && !isMailingListValid && "text-red-700"
+              {/* <label
+                className={`md:hidden text-xs text-darkGrey leading-none md:text-base ${
+                  isTouched.mailingList && !isMailingListValid && 'text-red-700'
                 }`}
                 htmlFor="agreedSmsEmail"
               >
-                תשלחו לי עדכונים הצעות והטבות במייל וב -{" "}
+                תשלחו לי עדכונים הצעות והטבות במייל וב -{' '}
+                <span className="">SMS</span>
+              </label> */}
+              <label
+                className={`text-xs text-right text-darkGrey leading-none md:text-base ${
+                  isTouched.mailingList && !isMailingListValid && 'text-red-700'
+                }`}
+                htmlFor="agreedSmsEmail"
+              >
+                תשלחו לי עדכונים, הצעות והטבות בטלפון, במייל {' '}
+                <br className='md:hidden' />
+                וב- {' '}
                 <span className="">SMS</span>
               </label>
             </div>
@@ -187,7 +204,7 @@ export default function Form({}: Props) {
               תחזרו אליי
               <svg
                 className={`animate-spin -ml-1 mr-3 h-5 w-5 text-white ${
-                  isLoading ? "block" : "hidden"
+                  isLoading ? 'block' : 'hidden'
                 }`}
                 viewBox="0 0 24 24"
               >
@@ -197,7 +214,7 @@ export default function Form({}: Props) {
                   cy="12"
                   r="10"
                   stroke="currentColor"
-                  stroke-width="4"
+                  strokeWidth="4"
                 ></circle>
                 <path
                   className="opacity-75"

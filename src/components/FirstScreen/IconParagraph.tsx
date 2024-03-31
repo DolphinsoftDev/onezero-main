@@ -7,8 +7,8 @@ type Props = {
 
 export default function IconParagraph({ text }: Props) {
   return (
-    <p className="flex gap-2 align-middle font-Digibank-Regular font-normal md:text-2xl 3xl:text-3xl">
-      <img className="w-2.5  md:w-3 3xl:w-4" src={checked} alt="וי" />
+    <p className="flex gap-[unset] align-middle font-Digibank-Regular font-normal md:text-[1.111vw]">
+      <img className="w-2.5  md:w-[1.319vw] " src={checked} alt="וי" />
       {text}
     </p>
   );

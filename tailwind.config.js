@@ -23,9 +23,13 @@ export default {
 
     },
     fontFamily: {
-      "Digibank-Apparat-Book": "Digibank-Apparat-Book",
+      "Apparat-Light": "Apparat-Light",
+      "Apparat-Book": "Apparat-Book",
+      "Apparat-Medium": "Apparat-Medium",
+      "Apparat-Bold": "Apparat-Bold",
       "Digibank-Regular": "Digibank-Regular",
       "Digibank-Medium": "Digibank-Medium",
+      "Digibank-Apparat-Book": "Digibank-Apparat-Book",
     },
     listStyleType: {
       plus: "'+'",

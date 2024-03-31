@@ -21,11 +21,11 @@ function App() {
     <div>
       {isDesktop && isScrolled && <StickyFooter />}
       <FirstScreen />
+      <SecondScreen />
       <div className="md:flex w-full md:h-[40rem]">
         <Form />
         <FormImage />
       </div>
-      <SecondScreen />
       <ThirdScreen />
       <FourthScreen />
       <FifthScreen />

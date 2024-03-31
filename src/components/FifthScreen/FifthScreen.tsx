@@ -8,18 +8,19 @@ import Link from "../Ui/Link";
 import galleryOne from "../../assets/mobile-imgs/gallery-one.png";
 import galleryOnePlus from "../../assets/mobile-imgs/gallery-one-plus.png";
 import galleryZero from "../../assets/mobile-imgs/gallery-zero.png";
+import { generateURLWithSearchParams } from "../../utils/urlUtils";
 type Props = {};
 
 function SlideHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-[2.84rem] mb-5 md:leading-none md:mb-[2.8125rem] font-Digibank-Apparat-Book">
+    <h2 className="text-[45px]  md:leading-none absolute bottom-[13rem] md:bottom-[15rem] font-Digibank-Apparat-Book">
       {children}
     </h2>
   );
 }
 function SlideParagraph({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-lg leading-[1.375rem] font-Digibank-Regular">
+    <p className="text-lg leading-[22.5px] font-OneZero-Apparat-Book ">
       {children}
     </p>
   );
@@ -42,7 +43,7 @@ function SlideCard({
   );
 }
 const slideFooterStyle =
-  "text-xl text-right font-Digibank-Regular text-darkGrey p-3";
+  "text-[18px] leading-[22.5px] pt-[4px] text-right font-OneZero-Apparat-Book text-darkGrey p-3";
 
 const activeButtonStyle = "text-white bg-black";
 export default function FifthScreen({}: Props) {
@@ -53,60 +54,89 @@ export default function FifthScreen({}: Props) {
     swiperInstance?.slideTo(index);
   }
   return (
-    <div className="flex flex-col items-center justify-center place-content-center py-14 px-0 gap-8 text-center">
-      <h2 className="font-Digibank-Medium  text-2xl leading-7 md:text-[2.5rem] md:leading-4">
-        נגמרה ההתנסות? <br className="md:hidden" />
-        איזה מסלול הכי מתאים לך?
+    <div className="flex flex-col items-center justify-center place-content-center pt-[48px]  pb-[70px] md:pb-[usnet] md:py-14 px-0 gap-8 text-center">
+      <h2 className="font-OneZero-Apparat-Book  text-2xl leading-[26.4px] md:text-[2.5rem] md:leading-4">
+        איזה מסלול הכי <br className="md:hidden" />
+        מתאים לך?
       </h2>
-      <Link target="_blank" href="https://www.onezerobank.com/plans/" className="md:text-2xl">לפירוט המסלולים המלא</Link>
+      <Link target="_blank" href={generateURLWithSearchParams("https://www.onezerobank.com/plans/")} className="md:text-[22px] font-OneZero-Apparat-Book">לפירוט המסלולים המלא</Link>
 
       <div className="hidden md:flex justify-between lg:w-11/12 xl:w-5/6 3xl:w-4/6">
-        <div>
+        <div className="relative">
           <SlideCard style={{ backgroundImage: `url(${galleryZero})` }}>
             <SlideHeader>Zero</SlideHeader>
             <SlideParagraph>
-              מסלול בסיסי - ללא עמלות עו״ש ודמי
+              פטור מורחב מעמלות עו״ש ודמי
               <br />
-              כרטיס. תשלום לפי שימוש, ללא בנקאות
+              כרטיס. תשלום לפי שימוש, 
               <br />
-              פרטית.
+              ללא בנקאות פרטית.
             </SlideParagraph>
           </SlideCard>
-          <p className={slideFooterStyle}>תשלום לפי שימוש</p>
+          <div className="text-right px-3 my-3">
+            {/* <h3 className="invisible text-[18px] leading-[22.5px] font-OneZero-Apparat-Medium text-darkGrey">
+              .
+            </h3> */}
+            <p className={`${slideFooterStyle} px-0 py-0`}>
+              תשלום לפי שימוש
+            </p>
+          </div>
+
+          {/* <p className={slideFooterStyle}>תשלום לפי שימוש</p> */}
         </div>
 
-        <div>
+        <div className="relative">
           <SlideCard style={{ backgroundImage: `url(${galleryOne})` }}>
             <SlideHeader>One</SlideHeader>
             <SlideParagraph>
-              בנקאות פרטית עם מנהלי כספים אישיים,
+              בנקאות פרטית עם מנהלי כספים אישיים, 
               <br />
-              מענה אנושי 24/6, פטור מורחב מעמלות
+              מענה אנושי 24/6, פטור מורחב מעמלות 
               <br />
               ומסחר משתלם בניירות ערך.
             </SlideParagraph>
           </SlideCard>
           <div className="text-right px-3 my-3">
-            <h3 className="text-xl leading-5 font-Digibank-Medium font-semibold  text-darkGrey">
+            <h3 className="text-[18px] leading-[22.5px] font-OneZero-Apparat-Medium text-darkGrey">
               חודשיים התנסות
             </h3>
             <p className={`${slideFooterStyle} px-0 py-0`}>
-              לאחר מכן ₪49 / לחודש בסיום התקופה{" "}
+            לאחר מכן ₪49 / חודש בסיום התקופה 
+            <br />
+            ₪59 / חודש לחשבון משותף
             </p>
           </div>
         </div>
 
-        <div>
+        <div className="relative">
           <SlideCard style={{ backgroundImage: `url(${galleryOnePlus})` }}>
             <SlideHeader>+One</SlideHeader>
             <SlideParagraph>
-              כל מה שמציע One, פלוס מגוון שירותי <br />
-              ייעוץ פיננסי, חבילת ניירות ערך משתלמת,
+              חבילת מסחר חודשית בניירות ערך, כלי
               <br />
-              מענה אנושי 24/6 ופטור מורחב מעמלות.
+              AI תומכי החלטה, מעטפת שירותים 
+              <br />
+              אישית, הנחות והטבות בלעדיות, סקירות 
+              <br />
+              כלכליות מותאמות וייעוץ פנסיוני מתמשך 
+              
             </SlideParagraph>
           </SlideCard>
-          <p className={slideFooterStyle}>₪119 / לחודש</p>
+          <div className="text-right px-3 my-3">
+            {/* <h3 className="invisible text-[18px] leading-[22.5px] font-OneZero-Apparat-Medium text-darkGrey">
+              .
+            </h3> */}
+            <p className={`${slideFooterStyle} px-0 py-0`}>
+            ₪119 / חודש לחשבון יחיד
+            <br />
+            ₪139 / חודש לחשבון משותף
+            </p>
+          </div>
+          {/* <p className={slideFooterStyle}>
+            ₪119 / חודש לחשבון יחיד
+            <br />
+            ₪139 / חודש לחשבון משותף
+          </p> */}
         </div>
       </div>
 
@@ -144,10 +174,10 @@ export default function FifthScreen({}: Props) {
       </div>
 
       <Swiper
-       pagination={{
-        enabled: true,
-        bulletActiveClass: "swiper-pagination-bullet-active bg-black",
-      }}
+      //  pagination={{
+      //   enabled: true,
+      //   bulletActiveClass: "swiper-pagination-bullet-active bg-black",
+      // }}
       modules={[Pagination, Controller]}
       className="w-11/12 h-[31rem] md:hidden"
       spaceBetween={50}
@@ -164,14 +194,14 @@ export default function FifthScreen({}: Props) {
           <SlideCard style={{ backgroundImage: `url(${galleryZero})` }}>
             <SlideHeader>Zero</SlideHeader>
             <SlideParagraph>
-              מסלול בסיסי - ללא עמלות עו״ש ודמי
+              פטור מורחב מעמלות עו״ש ודמי 
               <br />
-              כרטיס. תשלום לפי שימוש, ללא בנקאות
+              כרטיס. תשלום לפי שימוש,
               <br />
-              פרטית.
+              ללא בנקאות פרטית.
             </SlideParagraph>
           </SlideCard>
-          <p className={slideFooterStyle}>תשלום לפי שימוש</p>
+          <p className={`${slideFooterStyle} pt-[18px]`}>תשלום לפי שימוש</p>
         </SwiperSlide>
         <SwiperSlide>
           <SlideCard style={{ backgroundImage: `url(${galleryOne})` }}>
@@ -185,11 +215,13 @@ export default function FifthScreen({}: Props) {
             </SlideParagraph>
           </SlideCard>
           <div className="text-right px-3 my-3">
-            <h3 className="text-xl leading-5 font-Digibank-Medium font-semibold  text-darkGrey">
+            <h3 className="text-[18px] leading-5 font-Apparat-Medium  text-darkGrey">
               חודשיים התנסות
             </h3>
             <p className={`${slideFooterStyle} px-0 py-0`}>
-              ₪49 / לחודש בסיום התקופה
+              לאחר מכן ₪49 / לחודש בסיום התקופה
+              <br />
+              ₪59 / לחודש לחשבון משותף
             </p>
           </div>
         </SwiperSlide>
@@ -197,14 +229,20 @@ export default function FifthScreen({}: Props) {
           <SlideCard style={{ backgroundImage: `url(${galleryOnePlus})` }}>
             <SlideHeader>+One</SlideHeader>
             <SlideParagraph>
-              כל מה שמציע One, פלוס מגוון שירותי ייעוץ
+              חבילת מסחר חודשית בניירות ערך, כלי
               <br />
-              פיננסי, חבילת ניירות ערך משתלמת, מענה
+              AI תומכי החלטה, מעטפת שירותים 
               <br />
-              אנושי 24/6 ופטור מורחב מעמלות.
+              אישית, הנחות והטבות בלעדיות, סקירות 
+              <br />
+              כלכליות מותאמות וייעוץ פנסיוני מתמשך  
             </SlideParagraph>
           </SlideCard>
-          <p className={slideFooterStyle}>₪119 / לחודש</p>
+          <p className={`${slideFooterStyle} pt-[18px]`}>
+            ₪119 / חודש לחשבון יחיד
+            <br />
+            ₪139 / חודש לחשבון משותף
+          </p>
         </SwiperSlide>
       </Swiper>
     </div>
