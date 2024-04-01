@@ -19,6 +19,10 @@ export default function StickyFooter({}: Props) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   function handleClick() {
+    window.dataLayer.push({
+      // redirect to app store
+      event: "Click2app",
+    });
     if (window.screen.width >= MIN_DESKTOP_WIDTH) {
       setIsDialogOpen(true);
       return;
@@ -61,6 +65,12 @@ export default function StickyFooter({}: Props) {
           id="onezeroCallButton"
           className={`md:hidden onezeroCallButton p-0  flex-col items-center gap-2 font-Digibank-Regular text-[0.63rem] leading-none md:leading-3 md:flex-row-reverse md:text-base md:gap-4 ${isVisibleStyle}`}
           href={`tel:${ONEZERO_DISPATCH_PHONE_NUMBER}`}
+          onClick={() => {
+            window.dataLayer.push({
+              // click to call
+              event: "C2C",
+            });
+          }}
         >
           <img className="w-[1.375rem] h-[1.375rem]" src={phone} />
           שיחה עם נציג
