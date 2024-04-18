@@ -8,6 +8,7 @@ export default function Qa() {
         שאלות תשובות
       </h2>
       <Accordion
+        id="faqHead-1"
         details={
           <p>
             פשוט מאוד, מורידים את אפליקציית ONE ZERO בחנות האפליקציות שבמכשירך,
@@ -22,6 +23,7 @@ export default function Qa() {
         summary={"איך פותחים חשבון ב ONE ZERO?"}
       />
       <Accordion
+        id="faqHead-2"
         details={
           <p>
             מדובר במסלול בסיסי שמציע שירות בנקאות דיגיטלית עם זמינות 24/6 ללא
@@ -33,6 +35,7 @@ export default function Qa() {
       />
 
       <Accordion
+        id="faqHead-3"
         details={
           <p>
             שתי סיבות:
@@ -47,6 +50,7 @@ export default function Qa() {
       />
 
       <Accordion
+        id="faqHead-4"
         details={
           <p>
             תשלום דמי מנוי חודשי אחד קבוע ושקוף מחליף מאות עמלות הנמצאות היום
@@ -62,6 +66,7 @@ export default function Qa() {
         summary={"אילו עמלות נכללות בדמי מנוי?"}
       />
       <Accordion
+        id="faqHead-5"
         details={
           <p>
             אנחנו מפוקחים ע״י בנק ישראל כמו כל בנק אחר. הבנק נמצא בשליטת פרופ'
@@ -73,6 +78,7 @@ export default function Qa() {
         summary={"אתם בנק חדש, למה שאסמוך עליכם?"}
       />
       <Accordion
+        id="faqHead-6"
         details={
           <p>
             בקלות. לאחר פתיחת החשבון, יוצרים איתנו קשר, וצוות הניוד שלנו ישמח
@@ -84,6 +90,7 @@ export default function Qa() {
       />
 
       <Accordion
+        id="faqHead-7"
         details={
           <p>
             פרופ' אמנון שעשוע הוא ממייסדי הבנק, ובעל השליטה בבנק. פרופ' שעשוע,
@@ -96,6 +103,7 @@ export default function Qa() {
         summary={"מי עומד מאחורי הבנק?"}
       />
       {/* <Accordion
+        id="faqHead-1"
         details={
           <p>
             הבנק הוא באפליקציה הדורשת טלפון חכם, אין לנו כרגע אתר אינטרנט. כרגע
@@ -108,6 +116,7 @@ export default function Qa() {
         summary={"כל אחד יכול להיות לקוח שלכם?"}
       /> */}
       <Accordion
+        id="faqHead-8"
         details={
           <p>
             אם מי מהלקוחות שלנו לא יהיה מרוצה מהחוויה, אז כנראה לא עשינו עבודה
@@ -118,6 +127,7 @@ export default function Qa() {
         summary={"ואם אני לא מרוצה ולא מעוניין גם במסלול אחר?"}
       />
       <Accordion
+        id="faqHead-9"
         details={
           <p>
             <b>One</b>

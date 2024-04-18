@@ -4,14 +4,25 @@ type Props = {
   summary?: React.ReactNode;
   details?: React.ReactNode;
   className?:string;
+  id:string;
 };
 
-export default function Accordion({ summary, details,className }: Props) {
+export default function Accordion({ summary, details, className, id }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [gtmEventWasSent, setGtmEventWasSent] = useState(false);
   function handleToggle(
     event: React.SyntheticEvent<HTMLDetailsElement, Event>
   ) {
     setIsOpen((prevState) => !prevState);
+    if(!gtmEventWasSent) {
+      setGtmEventWasSent(true);
+      const event = {
+        event: "question_click",
+        eventdata: { label: id || "", action: summary },
+      };
+      window.dataLayer.push(event);
+      console.log({event});
+    }
   }
   const marker = isOpen ? "-" : "+";
   return (
