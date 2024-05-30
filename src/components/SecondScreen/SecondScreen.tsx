@@ -65,13 +65,24 @@ export default function SecondScreen({}: Props) {
           מערכת מסחר אטרקטיבית
         </h3>
         <p className={infoCardText}>
-          <span>
+          עם המלצות אנליסטים מבוססות AI
+          <br className="md:hidden"/>{" "}
+          שמסייעות בקבלת החלטות לגבי
+          <br className="md:hidden"/>{" "}
+          קניה או מכירה של מניות.
+          <br />
+          <br />
+          <span className="font-Digibank-Regular text-[12px] leading-[14.2px] ">
+            *במסלולי One
+          </span>
+
+          {/* <span>
             עד $600 לפעולות בני״ע עלינו
           </span> <br />
           הטבה בלעדית למצטרפים עד
           <br />
            ה1.5.24 
-          בכפוף <a className="underline" href="https://www.onezerobank.com/warehouse/userUploadFiles/Image/trading15.pdf" target="_blank">לתקנון המבצע</a>.
+          בכפוף <a className="underline" href="https://www.onezerobank.com/warehouse/userUploadFiles/Image/trading15.pdf" target="_blank">לתקנון המבצע</a>. */}
         </p>
       </HorizontalInfoCard>
 
@@ -109,13 +120,23 @@ export default function SecondScreen({}: Props) {
               מערכת מסחר אטרקטיבית
             </h3>
             <p className={infoCardText}>
-              <span>
+              {/* <span>
                 עד $600 לפעולות בני״ע עלינו
               </span> <br />
               הטבה בלעדית למצטרפים עד
               <br />
                ה1.5.24 
-              בכפוף <a className="underline" href="https://www.onezerobank.com/warehouse/userUploadFiles/Image/trading15.pdf" target="_blank">לתקנון המבצע</a>.
+              בכפוף <a className="underline" href="https://www.onezerobank.com/warehouse/userUploadFiles/Image/trading15.pdf" target="_blank">לתקנון המבצע</a>. */}
+              עם המלצות אנליסטים מבוססות AI
+              <br />{" "}
+              שמסייעות בקבלת החלטות לגבי
+              <br />{" "}
+              קניה או מכירה של מניות.
+              <br />
+              <br />
+              <span className="font-Digibank-Regular text-[12px] leading-[14.2px] ">
+                *במסלולי One
+              </span>
             </p>
           </>}
         />
