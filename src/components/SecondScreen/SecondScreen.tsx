@@ -69,7 +69,7 @@ export default function SecondScreen({}: Props) {
           <br className="md:hidden"/>{" "}
           שמסייעות בקבלת החלטות לגבי
           <br className="md:hidden"/>{" "}
-          קניה או מכירה של מניות.
+          קניה או מכירה של מניות
           <br />
           <br />
           <span className="font-Digibank-Regular text-[12px] leading-[14.2px] ">
@@ -131,7 +131,7 @@ export default function SecondScreen({}: Props) {
               <br />{" "}
               שמסייעות בקבלת החלטות לגבי
               <br />{" "}
-              קניה או מכירה של מניות.
+              קניה או מכירה של מניות
               <br />
               <br />
               <span className="font-Digibank-Regular text-[12px] leading-[14.2px] ">
