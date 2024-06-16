@@ -13,7 +13,7 @@ type Props = {};
 
 function SlideHeader({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-[45px]  md:leading-none absolute bottom-[13rem] md:bottom-[15rem] font-Digibank-Apparat-Book">
+    <h2 className="text-[45px]  md:leading-none absolute bottom-[15rem] md:bottom-[15rem] font-Digibank-Apparat-Book">
       {children}
     </h2>
   );
@@ -91,7 +91,7 @@ export default function FifthScreen({}: Props) {
             <SlideParagraph>
               בנקאות פרטית עם מנהלי כספים אישיים, 
               <br />
-              מענה אנושי 24/6, פטור מורחב מעמלות 
+              מענה אנושי 24/7, פטור מורחב מעמלות 
               <br />
               ומסחר משתלם בניירות ערך.
             </SlideParagraph>
@@ -106,6 +106,9 @@ export default function FifthScreen({}: Props) {
             ₪59 / חודש לחשבון משותף
             </p>
           </div>
+          <p className="text-right px-3 opacity-50 text-[14px]">
+            ביום ו׳ החל מהשעה 13:00 וביום שבת השירות <br /> ניתן על ידי בנקאית דיגיטלית.
+          </p>
         </div>
 
         <div className="relative">
@@ -179,7 +182,7 @@ export default function FifthScreen({}: Props) {
       //   bulletActiveClass: "swiper-pagination-bullet-active bg-black",
       // }}
       modules={[Pagination, Controller]}
-      className="w-11/12 h-[31rem] md:hidden"
+      className="w-11/12 h-[33rem] md:hidden"
       spaceBetween={50}
       slidesPerView={1}
       onSlideChange={(swiper) => setActiveSlideIndex(swiper.activeIndex)}
@@ -209,7 +212,7 @@ export default function FifthScreen({}: Props) {
             <SlideParagraph>
               בנקאות פרטית עם מנהלי כספים אישיים,
               <br />
-              מענה אנושי 24/6, פטור מורחב מעמלות
+              מענה אנושי 24/7, פטור מורחב מעמלות
               <br />
               ומסחר משתלם בניירות ערך.
             </SlideParagraph>
@@ -222,6 +225,9 @@ export default function FifthScreen({}: Props) {
               לאחר מכן ₪49 / לחודש בסיום התקופה
               <br />
               ₪59 / לחודש לחשבון משותף
+            </p>
+            <p className="text-right opacity-50 text-[11px] leading-[15px] pt-[4px]">
+              ביום ו׳ החל מהשעה 13:00 וביום שבת השירות <br /> ניתן על ידי בנקאית דיגיטלית.
             </p>
           </div>
         </SwiperSlide>

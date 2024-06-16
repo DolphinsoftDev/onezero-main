@@ -23,18 +23,19 @@ export default function ThirdScreen({}: Props) {
   return (
     <div className=" font-Digibank-Regular text-center px-5 py-14 md:py-[95px] flex flex-col gap-11 md:gap-[4.375rem] md:items-center bg-grey  ">
       <div className={`${cardContainer} ${reversedRow} `}>
-        <div className="">
-          <h2 className={`${cardHeader} md:w-[467.84px] `}>זמינים כשנוח לך - שירות 24/6</h2>
-          <p className={cardParagraph}>
-            מענה אנושי של בנקאים מקצועיים זמינים
-            <br />
-            מתי ואיך שנוח לך - בצ׳אט או בטלפון עם
-            <br />
-            מענה מהיר לכל בקשה
+        <div className="relative md:flex md:flex-col md:justify-center md:h-[368px]">
+          <div>
+            <h2 className={`${cardHeader} md:w-[467.84px] `}>זמינים כשנוח לך - שירות 24/7</h2>
+            <p className={cardParagraph}>
+              מענה מסביב לשעון, בכל יום ובכל שעה.
+            </p>
+          </div>
+          <p className="opacity-70 text-center leading-[13.2px] md:leading-[31.2px] text-[11px] md:text-[16px] md:text-right md:absolute bottom-[0]">
+            ביום ו׳ החל מהשעה 13:00 וביום שבת השירות {" "} <br className="md:hidden" /> ניתן על ידי בנקאית דיגיטלית.
           </p>
         </div>
         {/* <div className="md:hidden">
-          <h2 className={`${cardHeader} md:w-[467.84px] `}>זמינים כשנוח לך - שירות 24/6</h2>
+          <h2 className={`${cardHeader} md:w-[467.84px] `}>זמינים כשנוח לך - שירות 24/7</h2>
           <p className={cardParagraph}>
             מענה אנושי של בנקאים מקצועיים כאן בשבילך
             <br />
