@@ -32,6 +32,7 @@ export default function FourthScreen({}: Props) {
         חודשיים התנסות ללא עלות.
       </h2>
       <IconButton
+        id="7_min_open_acc_btn"
         onClick={handleClick}
         iconPosition="end"
         icon={

@@ -23,6 +23,7 @@ export default function Footer({}: Props) {
 
         חודשיים התנסות מתנה במסלול One - בכפוף לתנאי מסלול One {" "}
           <a
+            id="footer-terms-link-mob"
             className="underline"
             target="_blank"
             href={termsAndConditionsLink}
@@ -46,6 +47,7 @@ export default function Footer({}: Props) {
         {/* <br /> */}
         {" "}
           <a
+            id="footer-terms-link-desk"
             target="_blank"
             className="underline"
             href={termsAndConditionsLink}

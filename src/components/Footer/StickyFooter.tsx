@@ -48,6 +48,7 @@ export default function StickyFooter({}: Props) {
           className="self-center text-white bg-blue rounded-3xl py-3 px-6 w-fit font-Digibank-Medium text-base leading-[1.2rem]"
           iconPosition="end"
           text="להתנסות ופתיחת חשבון"
+          id='open-acc-sticky-btn'
           icon={
             <img
               src={leftArrow}

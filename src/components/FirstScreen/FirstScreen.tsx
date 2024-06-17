@@ -80,6 +80,7 @@ export default function FirstScreen({}: Props) {
           <IconButton
             onClick={handleClick}
             iconPosition="end"
+            id='open-acc-header-btn'
             icon={
               <img
                 src={leftArrow}

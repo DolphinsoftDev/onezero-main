@@ -59,7 +59,7 @@ export default function FifthScreen({}: Props) {
         איזה מסלול הכי <br className="md:hidden" />
         מתאים לך?
       </h2>
-      <Link target="_blank" href={generateURLWithSearchParams("https://www.onezerobank.com/plans/")} className="md:text-[22px] font-OneZero-Apparat-Book">לפירוט המסלולים המלא</Link>
+      <Link id="plans-link" target="_blank" href={generateURLWithSearchParams("https://www.onezerobank.com/plans/")} className="md:text-[22px] font-OneZero-Apparat-Book">לפירוט המסלולים המלא</Link>
 
       <div className="hidden md:flex justify-between lg:w-11/12 xl:w-5/6 3xl:w-4/6">
         <div className="relative">

@@ -199,6 +199,7 @@ export default function Form({}: Props) {
             <button
               onClick={handleSubmit}
               type="submit"
+              id='form-submit-btn'
               className={`flex font-Digibank-Medium self-center text-white bg-blue rounded-3xl py-2 px-6 w-fit text-sm font-medium md:text-base md:self-start }`}
             >
               תחזרו אליי
